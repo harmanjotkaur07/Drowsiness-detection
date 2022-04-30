@@ -7,7 +7,7 @@ import time
 
 
 mixer.init()
-sound = mixer.Sound(r"C:\Users\lenovo\OneDrive\Desktop\harman's folder\projects\Drowsiness detection\Drowsiness detection\alarm.wav")
+sound = mixer.Sound(r"alarm.wav")
 
 face = cv2.CascadeClassifier(r"C:\Users\lenovo\OneDrive\Desktop\harman's folder\projects\Drowsiness detection\Drowsiness detection\haar cascade files\haarcascade_frontalface_alt.xml")
 leye = cv2.CascadeClassifier(r"C:\Users\lenovo\OneDrive\Desktop\harman's folder\projects\Drowsiness detection\Drowsiness detection\haar cascade files\haarcascade_lefteye_2splits.xml")
@@ -17,7 +17,7 @@ reye = cv2.CascadeClassifier(r"C:\Users\lenovo\OneDrive\Desktop\harman's folder\
 
 lbl=['Close','Open']
 
-model = load_model(r"C:\Users\lenovo\OneDrive\Desktop\harman's folder\projects\Drowsiness detection\Drowsiness detection\models\cnnCat2.h5")
+model = load_model(r"cnnCat2.h5")
 path = os.getcwd()
 
 cap = cv2.VideoCapture(0)
