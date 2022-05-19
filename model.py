@@ -15,8 +15,8 @@ def generator(dir, gen=image.ImageDataGenerator(rescale=1./255), shuffle=True,ba
 
 BS= 32
 TS=(24,24)
-train_batch= generator(r"C:\Users\lenovo\OneDrive\Desktop\ML PROJECTS\driver drowsiness detection\train_set",shuffle=True, batch_size=BS,target_size=TS)
-valid_batch= generator(r"C:\Users\lenovo\OneDrive\Desktop\ML PROJECTS\driver drowsiness detection\test_set",shuffle=True, batch_size=BS,target_size=TS)
+train_batch= generator(r"C:\Users\lenovo\OneDrive\Desktop\ML PROJECTS\driver drowsiness detection\test_set",shuffle=True, batch_size=BS,target_size=TS)
+valid_batch= generator(r"C:\Users\lenovo\OneDrive\Desktop\ML PROJECTS\driver drowsiness detection\train_set",shuffle=True, batch_size=BS,target_size=TS)
 SPE= len(train_batch.classes)//BS
 VS = len(valid_batch.classes)//BS
 print(SPE,VS)
@@ -47,12 +47,11 @@ model = Sequential([
 #one more dropout for convergence' sake :) 
     Dropout(0.5),
 #output a softmax to squash the matrix into output probabilities
-    Dense(2, activation='softmax'),
-    
+    Dense(2, activation='softmax')
 ])
 
 model.compile(optimizer='adam',loss='categorical_crossentropy',metrics=['accuracy'])
 
 model.fit_generator(train_batch, validation_data=valid_batch,epochs=15,steps_per_epoch=SPE ,validation_steps=VS)
 
-model.save(r"C:\Users\lenovo\OneDrive\Desktop\harman's folder\projects\Drowsiness detection\Drowsiness detection\models\cnnCat2.h5", overwrite=True)
+model.save(r"C:\Users\lenovo\Downloads\Drowsiness detection yt\models\cnnCat2.h5", overwrite=True)
